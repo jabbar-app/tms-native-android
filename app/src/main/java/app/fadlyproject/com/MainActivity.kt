@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
     private var result: TextView? = null
     private var upload: Button? = null
     private var gallery: Button? = null
+    private var loading: ProgressBar? = null
     private var permissionsToRequest: ArrayList<String>? = null
     private val permissionsRejected: ArrayList<String> = ArrayList()
     private val permissions: ArrayList<String> = ArrayList()
@@ -67,6 +68,7 @@ class MainActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
         upload = findViewById(R.id.upload)
         layout = findViewById(R.id.layout_root)
         gallery = findViewById(R.id.gallery)
+        loading = findViewById(R.id.progressBar)
 
         camera!!.setOnClickListener {
             openImageChooser()
@@ -147,6 +149,8 @@ class MainActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
             }
             else{
                 try {
+                    result!!.visibility = View.INVISIBLE
+                    loading!!.visibility = View.VISIBLE
                     val filesDir = applicationContext.filesDir
                     val file = File(filesDir, "image" + ".png")
                     val bos = ByteArrayOutputStream()
@@ -178,6 +182,8 @@ class MainActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
                                 layout!!.snackbar(it.message)
                                 result!!.text = it.data.classes
                                 layout!!.visibility = View.VISIBLE
+                                loading!!.visibility = View.INVISIBLE
+                                result!!.visibility = View.VISIBLE
                                 Glide.with(this@MainActivity).load("http://167.172.72.26:1337/"+ it.data.image_after_preprocessing).into(
                                     image!!
                                 )
