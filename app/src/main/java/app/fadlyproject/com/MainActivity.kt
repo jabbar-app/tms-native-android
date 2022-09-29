@@ -198,6 +198,8 @@ class MainActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
             }
         }
         else{
+            result!!.visibility = View.INVISIBLE
+            loading!!.visibility = View.VISIBLE
             val parcelFileDescriptor =
                 contentResolver.openFileDescriptor(selectedImageUri!!, "r", null) ?: return
 
@@ -227,6 +229,8 @@ class MainActivity : AppCompatActivity(), UploadRequestBody.UploadCallback {
                         layout!!.snackbar(it.message)
                         result!!.text = it.data.classes
                         layout!!.visibility = View.VISIBLE
+                        loading!!.visibility = View.INVISIBLE
+                        result!!.visibility = View.VISIBLE
                         Glide.with(this@MainActivity).load("http://167.172.72.26:1337/"+ it.data.image_after_preprocessing).into(
                             image!!
                         )
