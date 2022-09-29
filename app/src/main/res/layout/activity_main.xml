@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#F0F0F0"
+    android:id="@+id/layout_root">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F0F0F0">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gambar"
+            android:textSize="20sp"
+            android:textColor="#284268"
+            android:fontFamily="@font/rubik_semibold"
+            android:layout_gravity="center"
+            android:layout_marginTop="58dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp"
+            app:srcCompat="@drawable/ic_leafbg"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            android:layout_marginTop="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/takepicture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/rubik_regular"
+            android:text="Ambil Gambar"
+            android:textColor="#284268"
+            android:textSize="20sp"
+            android:layout_marginTop="31dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_view"/>
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="31dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/takepicture">
+
+            <Button
+                android:id="@+id/camera"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:text="Kamera"
+                android:textAllCaps="false"
+                android:textColor="#284268"
+                android:textSize="16sp"
+                android:padding="20dp"
+                android:drawableStart="@drawable/ic_camera"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/rubik_regular"
+                android:background="@drawable/rounded_buttonwhite"/>
+
+            <Button
+                android:id="@+id/gallery"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="60dp"
+                android:text="Galeri"
+                android:textAllCaps="false"
+                android:textColor="#284268"
+                android:textSize="16sp"
+                android:padding="20dp"
+                android:layout_marginStart="10dp"
+                android:drawableStart="@drawable/ic_galeri"
+                android:fontFamily="@font/rubik_regular"
+                android:background="@drawable/rounded_buttonwhite"
+                android:backgroundTint="@android:color/white"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/rubik_regular"
+            android:text="Hasil:"
+            android:textColor="#284268"
+            android:textSize="16sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout"/>
+
+        <TextView
+            android:id="@+id/hasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/rubik_medium"
+            android:text="-"
+            android:textColor="#284268"
+            android:textSize="20sp"
+            android:layout_marginTop="11dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subtitle"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="65dp"
+            android:layout_marginStart="38dp"
+            android:layout_marginEnd="38dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/hasil">
+
+            <Button
+                android:id="@+id/upload"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="60dp"
+                android:text="Klasifikasikan"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                android:layout_marginEnd="5dp"
+                android:fontFamily="@font/rubik_regular"
+                android:background="@drawable/rounded_buttonwhite"
+                android:backgroundTint="@color/purple_200"/>
+
+            <ImageButton
+                android:id="@+id/delete"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/rounded_red"
+                android:backgroundTint="#C95757"
+                android:src="@drawable/ic_trash"
+                android:layout_marginStart="5dp"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
